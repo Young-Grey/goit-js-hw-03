@@ -1,31 +1,20 @@
 /*
-Оголоси функцію makeTransaction, яка очікує два параметри, значення яких будуть задаватися під час її виклику: • quantity— перший параметр, число, що містить кількість замовлених дроїдів • pricePerDroid — другий параметр, число, що містить вартість одного дроїда
+Напиши функцію slugify(title), яка приймає заголовок статті, параметр title і повертає slug, створений із цього рядка.
 
-Доповни код функції так, щоб вона повертала рядок з повідомленням про покупку ремонтних дроїдів: "You ordered <quantity> droids worth <totalPrice> credits!", де: • <quantity> — це кількість замовлених дроїдів • <totalPrice> — це загальна вартість замовлення, тобто вартість усіх замовлених дроїдів
-
+Значенням параметра title будуть рядки, слова яких розділені лише пробілами.
+Усі символи slug повинні бути в нижньому регістрі.
+Усі слова slug повинні бути розділені тире.
 Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
-
-console.log(makeTransaction(5, 3000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 500)); // "You ordered 10 droids worth 5000 credits!"
-
-Залиш цей код для перевірки ментором.
-
-На що буде звертати увагу ментор при перевірці:
-
-Оголошена функція makeTransaction(quantity, pricePerDroid)
-Виклик makeTransaction(5, 3000) повертає "You ordered 5 droids worth 15000 credits!"
-Виклик makeTransaction(3, 1000) повертає "You ordered 3 droids worth 3000 credits!"
-Виклик makeTransaction(10, 500) повертає "You ordered 10 droids worth 5000 credits!"
-В консоль виведині всі результаті викликів
-Виклик makeTransaction з будь якими-валідними аргументами повертає правильне значення
 */
 
-function makeTransaction(quantity, pricePerDroid){
-    let totalPrice = quantity * pricePerDroid;
-    return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+function slugify(title){
+    title = title.toLowerCase();
+    const arr = title.split(" ");
+    return arr.join("-");
 }
 
-console.log(makeTransaction(5, 3000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 500)); // "You ordered 10 droids worth 5000 credits!"
+
+console.log(slugify("Arrays for beginners")); // "arrays-for-beginners"
+console.log(slugify("English for developer")); // "english-for-developer"
+console.log(slugify("Ten secrets of JavaScript")); // "ten-secrets-of-javascript"
+console.log(slugify("How to become a JUNIOR developer in TWO WEEKS")); // "how-to-become-a-junior-developer-in-two-weeks"
